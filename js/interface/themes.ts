@@ -1,3 +1,4 @@
+import StudioTenTheme from '../../themes/studio_ten.bbtheme'
 import DarkTheme from '../../themes/dark.bbtheme'
 import LightTheme from '../../themes/light.bbtheme'
 import ContrastTheme from '../../themes/contrast.bbtheme'
@@ -36,6 +37,8 @@ type ThemeData = {
 	}
 	option_values: Record<string, string>
 }
+
+const DEFAULT_THEME_ID = 'studio_ten';
 
 const DEFAULT_COLORS = {
 	ui: '#1e2127',
@@ -160,6 +163,7 @@ export class CustomTheme {
 	}
 	static backup_data: string | null = null
 	static themes: CustomTheme[] = [
+		StudioTenTheme,
 		DarkTheme,
 		LightTheme,
 		ContrastTheme
@@ -885,6 +889,13 @@ export function loadThemes() {
 			
 		} else if (stored_theme.source == 'custom') {
 			CustomTheme.loadTheme(stored_theme);
+		}
+	} else {
+		// Sin tema guardado: Studio Ten es el tema por defecto. No se guarda hasta que el usuario elija un tema.
+		let default_theme = CustomTheme.themes.find(t => t.id == DEFAULT_THEME_ID);
+		if (default_theme) {
+			CustomTheme.selected = default_theme;
+			CustomTheme.updateSettings();
 		}
 	}
 }

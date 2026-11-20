@@ -20,32 +20,16 @@ Check out the [Contribution Guidelines](CONTRIBUTING.md).
 
 
 
-## Launching Blockbench
+## Run Blockbench Web
 
-To launch Blockbench from source, you can clone the repository, navigate to the correct branch and launch the program in development mode using the instructions below.
-If you just want to use the latest version, please download the app from the website.
+Install [Node.js](https://nodejs.org/) 20 or later, then install the dependencies and start the local web server:
 
-### Setup Repository
-* Install [NodeJS](https://nodejs.org/en/).
-* Then install all dependencies via
-`npm install`
+```sh
+npm install
+npm run serve
+```
 
-
-### Run in Electron
-Use this command or press Ctrl + Shift + B to launch Blockbench in Electron:
-
-`npm run dev`
-
-To enable debugging in VS Code, switch to the **Run & Debug** tab, select the **"Debug Renderer"** configuration, and press the green arrow button to launch.
-Now you can set breakpoints and debug inside VSCode.
-
-
-### Run the web app
-Use this command to launch the web app locally:
-
-`npm run serve`
-
-Now you can open the web app in your browser under http://localhost:3000
+Open http://localhost:3000 in your browser.
 
 
 ## Plugins
